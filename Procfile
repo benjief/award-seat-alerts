@@ -1,1 +1,1 @@
-worker: python flight_search.py
+worker: python award_search.py
