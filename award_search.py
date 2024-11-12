@@ -1,7 +1,9 @@
 import requests
 import json
-from config import API_KEY
 from typing import List, Dict, Optional
+import os
+
+API_KEY = os.environ.get("API_KEY")
 
 def fetch_flights(params: Dict[str, str]) -> Optional[str]:
     """Fetch flights from the Seats.aero API."""
