@@ -3,13 +3,13 @@ import json
 import os
 from typing import List, Dict, Optional
 from twilio.rest import Client
-# from config import API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, MY_PHONE_NUMBER
+from config import API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, MY_PHONE_NUMBER
 
-API_KEY = os.environ.get("API_KEY")
-TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
-TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
-MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
+# API_KEY = os.environ.get("API_KEY")
+# TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+# TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+# TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
+# MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
 
 def fetch_flights(params: Dict[str, str]) -> Optional[str]:
     """Fetch flights from the Seats.aero API."""
