@@ -109,7 +109,7 @@ def main() -> None:
         "origin_airport": "YUL,YYZ,IAD,ORD,EWR,YVR,IAH,LAX,SFO",
         "destination_airport": "GRU,EZE,SJO",
         "cabin": "business",
-        "start_date": "2024-11-12",
+        "start_date": "2024-12-05",
         "end_date": "2024-12-10",
         "take": 500,
         "order_by": "lowest_mileage"
@@ -126,8 +126,11 @@ def main() -> None:
             filtered_flights = filter_flights(flights_list, mileage_threshold)
             display_flights(filtered_flights)
             
-            # Send SMS notification with the top 5 cheapest flights
-            send_sms_notification(filtered_flights)
+            # Only send SMS if there are flights that meet the criteria
+            if filtered_flights:
+                send_sms_notification(filtered_flights)
+            else:
+                print("No flights meet the criteria. SMS not sent.")
         else:
             print("Unexpected response structure. No flights found.")
 
