@@ -107,7 +107,7 @@ def main() -> None:
     """Main function to execute the flight search, filtering, and notifications."""
     params = {
         "origin_airport": "YUL,YYZ,IAD,ORD,EWR,YVR,IAH,LAX,SFO",
-        "destination_airport": "GRU,EZE",
+        "destination_airport": "GRU,EZE,SJO",
         "cabin": "business",
         "start_date": "2024-11-12",
         "end_date": "2024-12-10",
