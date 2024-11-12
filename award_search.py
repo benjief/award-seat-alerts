@@ -3,12 +3,13 @@ import json
 import os
 from typing import List, Dict, Optional
 from twilio.rest import Client
+from config import API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, MY_PHONE_NUMBER
 
-API_KEY = os.environ.get("API_KEY")
-TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
-TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
-MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
+# API_KEY = os.environ.get("API_KEY")
+# TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+# TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+# TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
+# MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
 
 def fetch_flights(params: Dict[str, str]) -> Optional[str]:
     """Fetch flights from the Seats.aero API."""
@@ -76,10 +77,10 @@ def send_sms_notification(flights: List[Dict]) -> None:
         return
     
     # Sort the flights by mileage cost in ascending order
-    flights = sorted(flights, key=lambda x: x["MileageCost"])[:5]
+    flights = sorted(flights, key=lambda x: x["MileageCost"])[:10]
     
     # Prepare the message content
-    message_body = "Top 5 Cheapest Flights:\n"
+    message_body = "Top 10 Cheapest Flights:\n"
     for flight in flights:
         message_body += (
             f"Route: {flight['Origin']} -> {flight['Destination']} on {flight['Date']}\n"
@@ -107,7 +108,7 @@ def main() -> None:
     """Main function to execute the flight search, filtering, and notifications."""
     params = {
         "origin_airport": "YUL,YYZ,IAD,ORD,EWR,YVR,IAH,LAX,SFO",
-        "destination_airport": "GRU,EZE,SJO",
+        "destination_airport": "GRU,EZE",
         "cabin": "business",
         "start_date": "2024-12-05",
         "end_date": "2024-12-10",
@@ -126,7 +127,7 @@ def main() -> None:
             filtered_flights = filter_flights(flights_list, mileage_threshold)
             display_flights(filtered_flights)
             
-            # Only send SMS if there are flights that meet the criteria
+            # Only send SMS if there are flights that meet my criteria
             if filtered_flights:
                 send_sms_notification(filtered_flights)
             else:
