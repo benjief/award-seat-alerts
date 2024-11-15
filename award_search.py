@@ -110,8 +110,8 @@ def main() -> None:
         "origin_airport": "EZE",
         "destination_airport": "YYZ, YUL, IAD",
         "cabin": "business",
-        "start_date": "2024-12-24",
-        "end_date": "2025-01-15",
+        "start_date": "2024-12-23",
+        "end_date": "2025-01-16",
         "take": 500,
         "order_by": "lowest_mileage"
     }
