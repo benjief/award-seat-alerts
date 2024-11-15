@@ -3,13 +3,13 @@ import json
 import os
 from typing import List, Dict, Optional
 from twilio.rest import Client
-from config import API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, MY_PHONE_NUMBER
+# from config import API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, MY_PHONE_NUMBER
 
-# API_KEY = os.environ.get("API_KEY")
-# TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
-# TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
-# TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
-# MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
+API_KEY = os.environ.get("API_KEY")
+TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
+MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
 
 def fetch_flights(params: Dict[str, str]) -> Optional[str]:
     """Fetch flights from the Seats.aero API."""
@@ -107,11 +107,11 @@ def send_sms_notification(flights: List[Dict]) -> None:
 def main() -> None:
     """Main function to execute the flight search, filtering, and notifications."""
     params = {
-        "origin_airport": "YUL,YYZ,IAD,ORD,EWR,YVR,IAH,LAX,SFO",
-        "destination_airport": "GRU,EZE",
+        "origin_airport": "EZE",
+        "destination_airport": "YYZ, YUL, IAD",
         "cabin": "business",
-        "start_date": "2024-12-05",
-        "end_date": "2024-12-10",
+        "start_date": "2024-11-14",
+        "end_date": "2024-11-30",
         "take": 500,
         "order_by": "lowest_mileage"
     }
