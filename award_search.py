@@ -107,8 +107,8 @@ def send_sms_notification(flights: List[Dict]) -> None:
 def main() -> None:
     """Main function to execute the flight search, filtering, and notifications."""
     params = {
-        "origin_airport": "EZE",
-        "destination_airport": "YYZ, YUL, IAD",
+        "origin_airport": "EZE, GRU, SCL, GIG",
+        "destination_airport": "YYZ, YUL, IAD, IAH, ORD",
         "cabin": "business",
         "start_date": "2024-12-23",
         "end_date": "2025-01-16",
@@ -127,11 +127,11 @@ def main() -> None:
             filtered_flights = filter_flights(flights_list, mileage_threshold)
             display_flights(filtered_flights)
             
-            # Only send SMS if there are flights that meet my criteria
-            if filtered_flights:
-                send_sms_notification(filtered_flights)
-            else:
-                print("No flights meet the criteria. SMS not sent.")
+            # # Only send SMS if there are flights that meet my criteria
+            # if filtered_flights:
+            #     send_sms_notification(filtered_flights)
+            # else:
+            #     print("No flights meet the criteria. SMS not sent.")
         else:
             print("Unexpected response structure. No flights found.")
 
