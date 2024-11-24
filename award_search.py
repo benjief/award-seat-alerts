@@ -127,11 +127,11 @@ def main() -> None:
             filtered_flights = filter_flights(flights_list, mileage_threshold)
             display_flights(filtered_flights)
             
-            # # Only send SMS if there are flights that meet my criteria
-            # if filtered_flights:
-            #     send_sms_notification(filtered_flights)
-            # else:
-            #     print("No flights meet the criteria. SMS not sent.")
+            # Only send SMS if there are flights that meet my criteria
+            if filtered_flights:
+                send_sms_notification(filtered_flights)
+            else:
+                print("No flights meet the criteria. SMS not sent.")
         else:
             print("Unexpected response structure. No flights found.")
 
