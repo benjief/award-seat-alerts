@@ -106,34 +106,61 @@ def send_sms_notification(flights: List[Dict]) -> None:
 
 def main() -> None:
     """Main function to execute the flight search, filtering, and notifications."""
-    params = {
-        "origin_airport": "EZE, GRU, SCL, GIG",
-        "destination_airport": "YYZ, YUL, IAD, IAH, ORD",
-        "cabin": "business",
-        "start_date": "2024-12-23",
-        "end_date": "2025-01-16",
-        "take": 500,
-        "order_by": "lowest_mileage"
-    }
+    # Define multiple parameter sets
+    parameter_sets = [
+        {
+            "origin_airport": "EZE, SCL",
+            "destination_airport": "YYZ, YUL, IAD, IAH, ORD",
+            "cabin": "business",
+            "start_date": "2024-12-23",
+            "end_date": "2025-01-17",
+            "take": 500,
+            "order_by": "lowest_mileage"
+        },
+        {
+            "origin_airport": "YUL, YYZ",
+            "destination_airport": "EZE",
+            "cabin": "business",
+            "start_date": "2024-12-05",
+            "end_date": "2024-12-10",
+            "take": 500,
+            "order_by": "lowest_mileage"
+        },
+                {
+            "origin_airport": "YVR, YUL, YYZ, YYC",
+            "destination_airport": "CDG, ORY",
+            "cabin": "business",
+            "start_date": "2025-06-27",
+            "end_date": "2024-07-15",
+            "take": 500,
+            "order_by": "lowest_mileage"
+        },
+    ]
+
     mileage_threshold = 90000
-    
-    # Fetch and parse flight data
-    response_text = fetch_flights(params)
-    if response_text:
-        data = parse_json(response_text)
-        flights_list = data.get("data", [])
+
+    for idx, params in enumerate(parameter_sets, start=1):
+        print(f"\nProcessing parameter set {idx}...\n")
         
-        if isinstance(flights_list, list):
-            filtered_flights = filter_flights(flights_list, mileage_threshold)
-            display_flights(filtered_flights)
+        # Fetch and parse flight data
+        response_text = fetch_flights(params)
+        if response_text:
+            data = parse_json(response_text)
+            flights_list = data.get("data", [])
             
-            # Only send SMS if there are flights that meet my criteria
-            if filtered_flights:
-                send_sms_notification(filtered_flights)
+            if isinstance(flights_list, list):
+                filtered_flights = filter_flights(flights_list, mileage_threshold)
+                display_flights(filtered_flights)
+                
+                # Only send SMS if there are flights that meet my criteria
+                if filtered_flights:
+                    send_sms_notification(filtered_flights)
+                else:
+                    print("No flights meet the criteria. SMS not sent.")
             else:
-                print("No flights meet the criteria. SMS not sent.")
+                print("Unexpected response structure. No flights found.")
         else:
-            print("Unexpected response structure. No flights found.")
+            print("Failed to fetch data for this parameter set.")
 
 if __name__ == "__main__":
     main()
