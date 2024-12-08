@@ -112,8 +112,8 @@ def main() -> None:
             "origin_airport": "EZE, SCL",
             "destination_airport": "YYZ, YUL, IAD, IAH, ORD",
             "cabin": "business",
-            "start_date": "2024-12-23",
-            "end_date": "2025-01-17",
+            "start_date": "2024-12-31",
+            "end_date": "2025-01-18",
             "take": 500,
             "order_by": "lowest_mileage"
         },
@@ -121,23 +121,41 @@ def main() -> None:
             "origin_airport": "YUL, YYZ",
             "destination_airport": "EZE",
             "cabin": "business",
-            "start_date": "2024-12-05",
-            "end_date": "2024-12-10",
+            "start_date": "2024-12-10",
+            "end_date": "2024-12-11",
             "take": 500,
             "order_by": "lowest_mileage"
         },
-                {
-            "origin_airport": "YVR, YUL, YYZ, YYC",
-            "destination_airport": "CDG, ORY",
+        # {
+        #     "origin_airport": "YVR, YUL, YYZ, YYC",
+        #     "destination_airport": "CDG, ORY",
+        #     "cabin": "business",
+        #     "start_date": "2025-06-27",
+        #     "end_date": "2025-07-15",
+        #     "take": 500,
+        #     "order_by": "lowest_mileage"
+        # },
+        #         {
+        #     "origin_airport": "CDG, ORY",
+        #     "destination_airport": "YVR, YYZ, YUL, YYC",
+        #     "cabin": "business",
+        #     "start_date": "2025-07-15",
+        #     "end_date": "2025-08-01",
+        #     "take": 500,
+        #     "order_by": "lowest_mileage"
+        # },
+        {
+            "origin_airport": "YVR, SFO, SEA, LAX",
+            "destination_airport": "BKK, SIN",
             "cabin": "business",
-            "start_date": "2025-06-27",
-            "end_date": "2024-07-15",
+            "start_date": "2024-12-31",
+            "end_date": "2024-01-05",
             "take": 500,
             "order_by": "lowest_mileage"
         },
     ]
 
-    mileage_threshold = 90000
+    mileage_threshold = 115000
 
     for idx, params in enumerate(parameter_sets, start=1):
         print(f"\nProcessing parameter set {idx}...\n")
@@ -154,7 +172,8 @@ def main() -> None:
                 
                 # Only send SMS if there are flights that meet my criteria
                 if filtered_flights:
-                    send_sms_notification(filtered_flights)
+                    print("Flights found. Sending SMS notification...")
+                    # send_sms_notification(filtered_flights)
                 else:
                     print("No flights meet the criteria. SMS not sent.")
             else:
