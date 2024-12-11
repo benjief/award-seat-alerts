@@ -117,15 +117,6 @@ def main() -> None:
             "take": 500,
             "order_by": "lowest_mileage"
         },
-        {
-            "origin_airport": "YUL, YYZ",
-            "destination_airport": "EZE",
-            "cabin": "business",
-            "start_date": "2024-12-10",
-            "end_date": "2024-12-11",
-            "take": 500,
-            "order_by": "lowest_mileage"
-        },
         # {
         #     "origin_airport": "YVR, YUL, YYZ, YYC",
         #     "destination_airport": "CDG, ORY",
