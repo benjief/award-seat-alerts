@@ -164,7 +164,7 @@ def main() -> None:
                 # Only send SMS if there are flights that meet my criteria
                 if filtered_flights:
                     print("Flights found. Sending SMS notification...")
-                    # send_sms_notification(filtered_flights)
+                    send_sms_notification(filtered_flights)
                 else:
                     print("No flights meet the criteria. SMS not sent.")
             else:
