@@ -137,10 +137,10 @@ def main() -> None:
         # },
         {
             "origin_airport": "YVR, SFO, SEA, LAX",
-            "destination_airport": "BKK, SIN",
+            "destination_airport": "TLV",
             "cabin": "business",
-            "start_date": "2024-12-31",
-            "end_date": "2024-01-05",
+            "start_date": "2025-01-20",
+            "end_date": "2025-02-02",
             "take": 500,
             "order_by": "lowest_mileage"
         },
