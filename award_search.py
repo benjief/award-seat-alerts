@@ -144,6 +144,24 @@ def main() -> None:
             "take": 500,
             "order_by": "lowest_mileage"
         },
+        {
+            "origin_airport": "EZE, GRU",
+            "destination_airport": "FRA, DUB, MUC, ZRH, MAD",
+            "cabin": "business",
+            "start_date": "2025-01-01",
+            "end_date": "2025-01-15",
+            "take": 500,
+            "order_by": "lowest_mileage"
+        },
+        {
+            "origin_airport": "DUB, MAD",
+            "destination_airport": "EWR, YVR, YYZ, YUL",
+            "cabin": "business",
+            "start_date": "2025-01-10",
+            "end_date": "2025-01-17",
+            "take": 500,
+            "order_by": "lowest_mileage"
+        },
     ]
 
     mileage_threshold = 115000
