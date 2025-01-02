@@ -109,54 +109,36 @@ def main() -> None:
     # Define multiple parameter sets
     parameter_sets = [
         {
-            "origin_airport": "EZE, SCL",
+            "origin_airport": "EZE, GRU",
             "destination_airport": "YYZ, YUL, IAD, IAH, ORD",
             "cabin": "business",
-            "start_date": "2024-12-31",
-            "end_date": "2025-01-18",
+            "start_date": "2025-01-09",
+            "end_date": "2025-01-17",
             "take": 500,
             "order_by": "lowest_mileage"
         },
         # {
-        #     "origin_airport": "YVR, YUL, YYZ, YYC",
-        #     "destination_airport": "CDG, ORY",
+        #     "origin_airport": "YVR, SFO, SEA, LAX",
+        #     "destination_airport": "TLV",
         #     "cabin": "business",
-        #     "start_date": "2025-06-27",
-        #     "end_date": "2025-07-15",
+        #     "start_date": "2025-01-20",
+        #     "end_date": "2025-02-02",
         #     "take": 500,
         #     "order_by": "lowest_mileage"
         # },
-        #         {
-        #     "origin_airport": "CDG, ORY",
-        #     "destination_airport": "YVR, YYZ, YUL, YYC",
-        #     "cabin": "business",
-        #     "start_date": "2025-07-15",
-        #     "end_date": "2025-08-01",
-        #     "take": 500,
-        #     "order_by": "lowest_mileage"
-        # },
-        {
-            "origin_airport": "YVR, SFO, SEA, LAX",
-            "destination_airport": "TLV",
-            "cabin": "business",
-            "start_date": "2025-01-20",
-            "end_date": "2025-02-02",
-            "take": 500,
-            "order_by": "lowest_mileage"
-        },
         {
             "origin_airport": "EZE, GRU",
-            "destination_airport": "FRA, DUB, MUC, ZRH, MAD",
-            "cabin": "business",
-            "start_date": "2025-01-01",
-            "end_date": "2025-01-15",
+            "destination_airport": "FRA, DUB, MUC, ZRH, FCO, MAD",
+            "cabin": "business, first",
+            "start_date": "2025-01-08",
+            "end_date": "2025-01-17",
             "take": 500,
             "order_by": "lowest_mileage"
         },
         {
-            "origin_airport": "DUB, MAD",
-            "destination_airport": "EWR, YVR, YYZ, YUL",
-            "cabin": "business",
+            "origin_airport": "FRA, MUC, DUB, MAD, FCO",
+            "destination_airport": "EWR, YVR, SEA, YYZ, YUL, JFK",
+            "cabin": "business, first",
             "start_date": "2025-01-10",
             "end_date": "2025-01-17",
             "take": 500,
