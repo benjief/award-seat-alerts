@@ -3,13 +3,13 @@ import json
 import os
 from typing import List, Dict, Optional
 from twilio.rest import Client
-# from config import API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, MY_PHONE_NUMBER
+from config import API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER, MY_PHONE_NUMBER
 
-API_KEY = os.environ.get("API_KEY")
-TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
-TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
-TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
-MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
+# API_KEY = os.environ.get("API_KEY")
+# TWILIO_ACCOUNT_SID = os.environ.get("TWILIO_ACCOUNT_SID")
+# TWILIO_AUTH_TOKEN = os.environ.get("TWILIO_AUTH_TOKEN")
+# TWILIO_PHONE_NUMBER = os.environ.get("TWILIO_PHONE_NUMBER")
+# MY_PHONE_NUMBER = os.environ.get("MY_PHONE_NUMBER")
 
 def fetch_flights(params: Dict[str, str]) -> Optional[str]:
     """Fetch flights from the Seats.aero API."""
@@ -129,7 +129,7 @@ def main() -> None:
         {
             "origin_airport": "EZE, GRU",
             "destination_airport": "FRA, DUB, MUC, ZRH, FCO, MAD",
-            "cabin": "business, first",
+            "cabin": "business",
             "start_date": "2025-01-08",
             "end_date": "2025-01-17",
             "take": 500,
@@ -138,7 +138,26 @@ def main() -> None:
         {
             "origin_airport": "FRA, MUC, DUB, MAD, FCO",
             "destination_airport": "EWR, YVR, SEA, YYZ, YUL, JFK",
-            "cabin": "business, first",
+            "cabin": "business",
+            "start_date": "2025-01-10",
+            "end_date": "2025-01-17",
+            "take": 500,
+            "order_by": "lowest_mileage"
+        },
+
+        {
+            "origin_airport": "EZE, GRU",
+            "destination_airport": "FRA, DUB, MUC, ZRH, FCO, MAD",
+            "cabin": "first",
+            "start_date": "2025-01-08",
+            "end_date": "2025-01-17",
+            "take": 500,
+            "order_by": "lowest_mileage"
+        },
+        {
+            "origin_airport": "FRA, MUC, DUB, MAD, FCO",
+            "destination_airport": "EWR, YVR, SEA, YYZ, YUL, JFK",
+            "cabin": "first",
             "start_date": "2025-01-10",
             "end_date": "2025-01-17",
             "take": 500,
@@ -164,7 +183,7 @@ def main() -> None:
                 # Only send SMS if there are flights that meet my criteria
                 if filtered_flights:
                     print("Flights found. Sending SMS notification...")
-                    send_sms_notification(filtered_flights)
+                    # send_sms_notification(filtered_flights)
                 else:
                     print("No flights meet the criteria. SMS not sent.")
             else:
