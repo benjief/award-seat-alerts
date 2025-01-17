@@ -42,7 +42,7 @@ def filter_flights(flights: List[Dict], threshold: int) -> List[Dict]:
         if flight.get("JAvailable") and flight.get("JMileageCost") and flight.get("Source") == "aeroplan":
             try:
                 mileage_cost = int(flight["JMileageCost"])
-                if mileage_cost < threshold:
+                if mileage_cost <= threshold:
                     filtered_flights.append({
                         "RouteID": flight.get("RouteID"),
                         "Origin": flight["Route"].get("OriginAirport"),
@@ -109,63 +109,17 @@ def main() -> None:
     # Define multiple parameter sets
     parameter_sets = [
         {
-            "origin_airport": "EZE, GRU",
-            "destination_airport": "YYZ, YUL, IAD, IAH, ORD",
+            "origin_airport": "YYC",
+            "destination_airport": "YYZ",
             "cabin": "business",
-            "start_date": "2025-01-09",
-            "end_date": "2025-01-17",
-            "take": 500,
-            "order_by": "lowest_mileage"
-        },
-        # {
-        #     "origin_airport": "YVR, SFO, SEA, LAX",
-        #     "destination_airport": "TLV",
-        #     "cabin": "business",
-        #     "start_date": "2025-01-20",
-        #     "end_date": "2025-02-02",
-        #     "take": 500,
-        #     "order_by": "lowest_mileage"
-        # },
-        {
-            "origin_airport": "EZE, GRU",
-            "destination_airport": "FRA, DUB, MUC, ZRH, FCO, MAD",
-            "cabin": "business",
-            "start_date": "2025-01-08",
-            "end_date": "2025-01-17",
-            "take": 500,
-            "order_by": "lowest_mileage"
-        },
-        {
-            "origin_airport": "FRA, MUC, DUB, MAD, FCO",
-            "destination_airport": "EWR, YVR, SEA, YYZ, YUL, JFK",
-            "cabin": "business",
-            "start_date": "2025-01-10",
-            "end_date": "2025-01-17",
-            "take": 500,
-            "order_by": "lowest_mileage"
-        },
-
-        {
-            "origin_airport": "EZE, GRU",
-            "destination_airport": "FRA, DUB, MUC, ZRH, FCO, MAD",
-            "cabin": "first",
-            "start_date": "2025-01-08",
-            "end_date": "2025-01-17",
-            "take": 500,
-            "order_by": "lowest_mileage"
-        },
-        {
-            "origin_airport": "FRA, MUC, DUB, MAD, FCO",
-            "destination_airport": "EWR, YVR, SEA, YYZ, YUL, JFK",
-            "cabin": "first",
-            "start_date": "2025-01-10",
-            "end_date": "2025-01-17",
+            "start_date": "2025-02-28",
+            "end_date": "2025-02-28",
             "take": 500,
             "order_by": "lowest_mileage"
         },
     ]
 
-    mileage_threshold = 115000
+    mileage_threshold = 130000
 
     for idx, params in enumerate(parameter_sets, start=1):
         print(f"\nProcessing parameter set {idx}...\n")
