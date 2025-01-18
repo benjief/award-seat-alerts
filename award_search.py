@@ -122,7 +122,7 @@ def main() -> None:
         },
         {
             "origin_airport": "HND, NRT, SIN, BKK, TPE, ICN",
-            "destination_airport": "JFK, EWR, SEA, LAX, SFO, YVR, ORD, YYZ, YUL",
+            "destination_airport": "JFK, EWR, SEA, LAX, SFO, YVR, ORD, YYZ, YUL, IAH",
             "cabin": "business",
             "start_date": "2025-03-17",
             "end_date": "2025-03-23",
