@@ -140,6 +140,16 @@ def main() -> None:
             "order_by": "lowest_mileage",
             "mileage_threshold": 120000
         },
+                {
+            "origin_airport": "BER",
+            "destination_airport": "EWR",
+            "cabin": "business",
+            "start_date": "2025-03-17",
+            "end_date": "2025-03-23",
+            "take": 500,
+            "order_by": "lowest_mileage",
+            "mileage_threshold": 60000
+        },
         {
             "origin_airport": "EWR",
             "destination_airport": "YVR",
