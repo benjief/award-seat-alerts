@@ -115,7 +115,7 @@ def main() -> None:
             "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR",
             "cabin": "business",
             "start_date": "2025-03-17",
-            "end_date": "2025-02-23",
+            "end_date": "2025-03-23",
             "take": 500,
             "order_by": "lowest_mileage",
             "mileage_threshold": 100000
@@ -125,7 +125,7 @@ def main() -> None:
             "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR",
             "cabin": "business",
             "start_date": "2025-03-17",
-            "end_date": "2025-02-23",
+            "end_date": "2025-03-23",
             "take": 500,
             "order_by": "lowest_mileage",
             "mileage_threshold": 120000
@@ -135,7 +135,7 @@ def main() -> None:
             "destination_airport": "JFK, YVR, ORD, EWR, LAX, SFO",
             "cabin": "business",
             "start_date": "2025-03-17",
-            "end_date": "2025-02-23",
+            "end_date": "2025-03-23",
             "take": 500,
             "order_by": "lowest_mileage",
             "mileage_threshold": 120000
@@ -145,7 +145,7 @@ def main() -> None:
             "destination_airport": "YVR",
             "cabin": "business",
             "start_date": "2025-03-17",
-            "end_date": "2025-02-23",
+            "end_date": "2025-03-23",
             "take": 500,
             "order_by": "lowest_mileage",
             "mileage_threshold": 50000
