@@ -118,7 +118,17 @@ def main() -> None:
             "end_date": "2025-03-23",
             "take": 500,
             "order_by": "lowest_mileage",
-            "mileage_threshold": 100000
+            "mileage_threshold": 80000
+        },
+        {
+            "origin_airport": "HND, NRT, SIN, BKK, TPE, ICN",
+            "destination_airport": "JFK, EWR, SEA, LAX, SFO, YVR, ORD, YYZ, YUL",
+            "cabin": "business",
+            "start_date": "2025-03-17",
+            "end_date": "2025-03-23",
+            "take": 500,
+            "order_by": "lowest_mileage",
+            "mileage_threshold": 110000
         },
         {
             "origin_airport": "MEL, BNE, SYD, PER, ADL",
