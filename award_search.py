@@ -42,14 +42,16 @@ def filter_flights(flights: List[Dict], threshold: int) -> List[Dict]:
         if flight.get("JAvailable") and flight.get("JMileageCost") and flight.get("Source") == "aeroplan":
             try:
                 mileage_cost = int(flight["JMileageCost"])
-                if mileage_cost <= threshold:
+                airlines = flight.get("JAirlines", [])
+
+                if "AI" not in airlines and mileage_cost <= threshold:
                     filtered_flights.append({
                         "RouteID": flight.get("RouteID"),
                         "Origin": flight["Route"].get("OriginAirport"),
                         "Destination": flight["Route"].get("DestinationAirport"),
                         "Date": flight.get("Date"),
                         "MileageCost": mileage_cost,
-                        "Airlines": flight.get("JAirlines"),
+                        "Airlines": airlines,
                         "DirectFlight": flight.get("JDirect"),
                         "RemainingSeats": flight.get("JRemainingSeats")
                     })
@@ -109,20 +111,52 @@ def main() -> None:
     # Define multiple parameter sets
     parameter_sets = [
         {
-            "origin_airport": "YYC",
-            "destination_airport": "YYZ",
+            "origin_airport": "HND, NRT, SIN, BKK, TPE, ICN",
+            "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR",
             "cabin": "business",
-            "start_date": "2025-02-28",
-            "end_date": "2025-02-28",
+            "start_date": "2025-03-17",
+            "end_date": "2025-02-23",
             "take": 500,
-            "order_by": "lowest_mileage"
+            "order_by": "lowest_mileage",
+            "mileage_threshold": 100000
+        },
+        {
+            "origin_airport": "MEL, BNE, SYD, PER, ADL",
+            "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR",
+            "cabin": "business",
+            "start_date": "2025-03-17",
+            "end_date": "2025-02-23",
+            "take": 500,
+            "order_by": "lowest_mileage",
+            "mileage_threshold": 120000
+        },
+        {
+            "origin_airport": "MEL, BNE, SYD, PER, ADL, AKL",
+            "destination_airport": "JFK, YVR, ORD, EWR, LAX, SFO",
+            "cabin": "business",
+            "start_date": "2025-03-17",
+            "end_date": "2025-02-23",
+            "take": 500,
+            "order_by": "lowest_mileage",
+            "mileage_threshold": 120000
+        },
+        {
+            "origin_airport": "EWR",
+            "destination_airport": "YVR",
+            "cabin": "business",
+            "start_date": "2025-03-17",
+            "end_date": "2025-02-23",
+            "take": 500,
+            "order_by": "lowest_mileage",
+            "mileage_threshold": 50000
         },
     ]
 
-    mileage_threshold = 130000
-
     for idx, params in enumerate(parameter_sets, start=1):
         print(f"\nProcessing parameter set {idx}...\n")
+
+        # Extract the mileage threshold for this parameter set
+        mileage_threshold = params.pop("mileage_threshold", 120000)  # Default to 120,000 if not specified
         
         # Fetch and parse flight data
         response_text = fetch_flights(params)
