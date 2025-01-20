@@ -112,7 +112,7 @@ def main() -> None:
     parameter_sets = [
         {
             "origin_airport": "HND, NRT, SIN, BKK, TPE, ICN",
-            "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR",
+            "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR, FCO",
             "cabin": "business",
             "start_date": "2025-03-17",
             "end_date": "2025-03-23",
@@ -132,7 +132,7 @@ def main() -> None:
         },
         {
             "origin_airport": "MEL, BNE, SYD, PER, ADL",
-            "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR",
+            "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR, FCO",
             "cabin": "business",
             "start_date": "2025-03-17",
             "end_date": "2025-03-23",
@@ -151,7 +151,7 @@ def main() -> None:
             "mileage_threshold": 120000
         },
         {
-            "origin_airport": "BER",
+            "origin_airport": "BER, ATH, FCO",
             "destination_airport": "EWR",
             "cabin": "business",
             "start_date": "2025-03-17",
