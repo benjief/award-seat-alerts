@@ -111,6 +111,16 @@ def main() -> None:
     # Define multiple parameter sets
     parameter_sets = [
         {
+            "origin_airport": "YVR, SEA",
+            "destination_airport": "SIN",
+            "cabin": "business",
+            "start_date": "2025-02-27",
+            "end_date": "2025-03-02",
+            "take": 500,
+            "order_by": "lowest_mileage",
+            "mileage_threshold": 120000
+        },
+        {
             "origin_airport": "HND, NRT, SIN, BKK, TPE, ICN",
             "destination_airport": "FRA, ZRH, IST, DUB, ATH, LHR, FCO",
             "cabin": "business",
@@ -151,16 +161,6 @@ def main() -> None:
             "mileage_threshold": 120000
         },
         {
-            "origin_airport": "BER, ATH, FCO",
-            "destination_airport": "EWR",
-            "cabin": "business",
-            "start_date": "2025-03-17",
-            "end_date": "2025-03-23",
-            "take": 500,
-            "order_by": "lowest_mileage",
-            "mileage_threshold": 60000
-        },
-        {
             "origin_airport": "EWR",
             "destination_airport": "YVR",
             "cabin": "business",
@@ -169,57 +169,7 @@ def main() -> None:
             "take": 500,
             "order_by": "lowest_mileage",
             "mileage_threshold": 50000
-        },
-        {
-            "origin_airport": "EWR",
-            "destination_airport": "YVR",
-            "cabin": "business",
-            "start_date": "2025-03-17",
-            "end_date": "2025-03-23",
-            "take": 500,
-            "order_by": "lowest_mileage",
-            "mileage_threshold": 50000
-        },
-        {
-            "origin_airport": "SYD, MEL, BNE",
-            "destination_airport": "YVR",
-            "cabin": "business",
-            "start_date": "2025-05-17",
-            "end_date": "2025-05-23",
-            "take": 500,
-            "order_by": "lowest_mileage",
-            "mileage_threshold": 87500
-        },
-        {
-            "origin_airport": "SYD, MEL, BNE",
-            "destination_airport": "LHR",
-            "cabin": "business",
-            "start_date": "2025-06-17",
-            "end_date": "2025-06-23",
-            "take": 500,
-            "order_by": "lowest_mileage",
-            "mileage_threshold": 87500
-        },
-        {
-            "origin_airport": "MEL, BNE, SYD, PER, ADL, AKL",
-            "destination_airport": "SIN, BKK, TPE, ICN, NRT, HND",
-            "cabin": "business",
-            "start_date": "2025-05-17",
-            "end_date": "2025-05-23",
-            "take": 500,
-            "order_by": "lowest_mileage",
-            "mileage_threshold": 60000
-        },
-        {
-            "origin_airport": "HND, NRT, SIN, BKK, TPE, ICN",
-            "destination_airport": "LHR",
-            "cabin": "business",
-            "start_date": "2025-06-17",
-            "end_date": "2025-06-23",
-            "take": 500,
-            "order_by": "lowest_mileage",
-            "mileage_threshold": 90000
-        },
+        }
     ]
 
     for idx, params in enumerate(parameter_sets, start=1):
